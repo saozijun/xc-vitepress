@@ -1,0 +1,37 @@
+// fancybox 图片缩放
+.fancybox__container {
+  --fancybox-bg: none;
+  .fancybox__toolbar {
+    --f-button-bg: none;
+    --f-button-color: var(--vp-c-text-1);
+    --f-button-svg-disabled-opacity: 0.2;
+    background: var(--vp-c-bg);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+  }
+}
+html[data-invert='false'] {
+  .fancybox__container {
+    &::before {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+.fancybox-image {
+  object-fit: initial;
+}
+.is-classic .is-nav-selected .f-thumbs__slide__button::after {
+  border-color: var(--vp-c-brand);
+}
+.fancybox__caption {
+  color: var(--vp-c-text-1);
+}
